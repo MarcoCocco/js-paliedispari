@@ -12,7 +12,7 @@ Dichiariamo chi ha vinto.
 
 
 /* Palindroma:
-1- Chiedi all'utente di inserire una parola tramito imput in pagina.
+1- Chiedi all'utente di inserire una parola tramito input in pagina.
 2- Crea una funzione chiamata "isPalindrome" che accetta come parametro 
    la parola inserita dall'utente.
 3- Inizializza due variabili, "start" e "end", che rappresentano 
@@ -24,8 +24,47 @@ Dichiariamo chi ha vinto.
 ? SE i caratteri sono uguali, aumenta il valore della variabile "start" di 1
   e diminuisci il valore della variabile "end" di 1 per confrontare
   il carattere successivo.
-5- Quando il loop ha completato la verifica di tutti i caratteri e non ha 
+? SE il loop ha completato la verifica di tutti i caratteri e non ha 
    restituito false, la parola è palindroma, quindi restituisci true.
 */
+
+let wordEl = document.getElementById('add-word');
+let wordBtnInputEl = document.getElementById('word-btn-input');
+
+wordBtnInputEl.addEventListener('click', function () {
+
+    let word = wordEl.value;
+
+    function isPalindrome(word) {
+
+        let start = 0;
+        let end = word.length - 1;
+
+        while (start < end) {
+
+            if (word[start] !== word[end]) {
+
+                return false;
+            }
+
+            start++;
+            end--;
+            
+        }
+
+        return true;
+    };
+
+    if (isPalindrome(word)) {
+
+        console.log(word + " è un palindromo");
+
+    } else {
+
+        console.log(word + " non è un palindromo");
+
+    }
+});
+
 
 
